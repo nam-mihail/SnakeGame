@@ -68,6 +68,8 @@ sf::Text& MenuUI::getItem(int index)
 
 void MenuUI::setBoolItems(const std::vector<std::pair<std::string, bool>>& names) {
 
+    boolItems.clear();
+
     const float spacing = 60.0f;
 
     float startY = Consts::CenterY - (names.size() * spacing) / 2.0f;
@@ -78,7 +80,6 @@ void MenuUI::setBoolItems(const std::vector<std::pair<std::string, bool>>& names
         text = createText(names[i].first, i, startY);
         text.setOrigin(0, text.getOrigin().y);
         text.setPosition(Consts::CenterX - 150, startY + i * spacing);
-        items.push_back(text);
 
         CheckBox checkBox(text.getPosition().x, text.getPosition().y, names[i].second);
 

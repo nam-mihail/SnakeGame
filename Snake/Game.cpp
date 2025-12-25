@@ -29,7 +29,7 @@ void Game::run()
         sf::Event event;
         while (window.pollEvent(event)) {
             states.getCurrentState()->handleEvent(event);
-            if (states.empty()) {
+            if (states.empty() || (event.type == sf::Event::Closed)) {
                 window.close();
                 return;
             }
